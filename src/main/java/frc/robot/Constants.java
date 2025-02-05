@@ -29,4 +29,18 @@ public final class Constants {
     /*How far the robot will drive out the starting zone for autonomous*/
     public static final double kAutoLeaveDistance = 1.5;
   }
+public static class DriverConstraints {
+  /* The side with the battery is the front */
+  /*Spark Numbers  
+   * 1 - Back left BL
+   * 2 - Front Left FL
+   * 3 - Front Right FR
+   * 4 - Back Left BR
+   */
+  public static final int kPortPWM_Drivetrain_BL = 0;
+  public static final int kPortPWM_Drivetrain_Fl = 1;
+  public static final int kPortPWM_Drivetrain_FR = 4;
+  public static final int kPortPWM_Drivetrain_Br = 5;
+}
+
 }
