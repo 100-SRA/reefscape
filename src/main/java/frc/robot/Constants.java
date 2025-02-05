@@ -14,6 +14,19 @@ package frc.robot;
  */
 public final class Constants {
   public static class OperatorConstants {
+    //The port number for the controller
     public static final int kDriverControllerPort = 0;
+
+    /* Binding */
+    public static final int kLeft_Trigger = 1;
+    public static final int kRight_Trigger = 2;
+    public static final int kX_Button = 3;
+    public static final int kCircle_Button = 4;
+    public static final int kTriangle_Button = 5;
+    public static final int kSquare_button = 6; 
+  }
+  public static class AutoConstraints {
+    /*How far the robot will drive out the starting zone for autonomous*/
+    public static final double kAutoLeaveDistance = 1.5;
   }
 }
