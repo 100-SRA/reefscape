@@ -34,10 +34,10 @@ public final class Constants {
   public static class DriveConstants {
     /* The side with the battery is the front */
     /*Spark Numbers  
-    * 1 - Back left BL
+    * 1 - Back Left BL
     * 2 - Front Left FL
     * 3 - Front Right FR
-    * 4 - Back Left BR
+    * 4 - Back Right BR
     */
     public static final int kPortPWM_Drivetrain_BL = 0;
     public static final int kPortPWM_Drivetrain_FL = 1;
