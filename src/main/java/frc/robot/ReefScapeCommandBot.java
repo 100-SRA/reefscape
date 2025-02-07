@@ -10,7 +10,7 @@ public class ReefScapeCommandBot {
 
   // Driver's controller
   private final CommandPS4Controller m_driverController = new CommandPS4Controller(
-      OperatorConstants.kDriverControllerPort);
+      OperatorConstants.kDriverControllerPort_A);
 
   // Map robot and controller conditions to commands
   public void configureBindings() {

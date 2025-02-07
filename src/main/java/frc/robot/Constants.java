@@ -15,8 +15,8 @@ package frc.robot;
 public final class Constants {
   public static class OperatorConstants {
     //The port number for the controller
-    public static final int kDriverControllerPort = 0;
-
+    public static final int kDriverControllerPort_A = 0;
+    public static final int kDriverControllerPort_B = 1;
     /* Binding */
     public static final int kLeft_Trigger = 1;
     public static final int kRight_Trigger = 2;
