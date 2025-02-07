@@ -44,4 +44,9 @@ public final class Constants {
     public static final int kPortPWM_Drivetrain_FR = 4;
     public static final int kPortPWM_Drivetrain_BR = 5;
   }
+
+  public static class ArmConstants {
+    /* Can id For the main arm lift */
+    public static final int kCanid_ArmLift = 1;
+  }
 }
