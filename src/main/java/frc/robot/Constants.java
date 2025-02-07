@@ -48,5 +48,8 @@ public final class Constants {
   public static class ArmConstants {
     /* Can id For the main arm lift */
     public static final int kCanid_ArmLift = 1;
+    public static final double kArmSpeed = 0.5;
   }
+
+  
 }
