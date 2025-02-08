@@ -1,10 +1,10 @@
-package frc.robot;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.Drive;
 
-public class ReefScapeCommandBot {
+public class DefaultDrive {
   // Robot subsystems
   private final Drive m_drive = new Drive();
 
