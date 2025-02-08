@@ -24,7 +24,7 @@ This repo stores the 100 SRA's FRC robot code for the 2025 game season. Good luc
 - [ ] implement algae (ball) intake subsystem and control:
     - [ ] pick control scheme
     - [ ] determine motor type
-    - CAN bus-linked Spark Max (CAN ID to be determined)
+    - CAN bus-linked Spark Max (CAN ID: 2)
 - [ ] implement coral (PVC) control
 - [ ] implement autonomous
     - [ ] plan autonomous
