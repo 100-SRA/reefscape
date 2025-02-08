@@ -48,7 +48,13 @@ public final class Constants {
   public static class ArmConstants {
     /* Can id For the main arm lift */
     public static final int kCanid_ArmLift = 1;
-    public static final double kArmSpeed = 0.5;
+    public static final double kArmSpeed = 0.5; //sets the speed for the arm
+  }
+
+  public static class AlgaeArmConstants {
+    /* Can id for the algae intake mechanism */
+    public static final int kCanid_AlgaeIntakeArm = 2;
+    public static final double kAlgaeArmSpeed = 0.4; //sets the speed of the arm
   }
 
   
