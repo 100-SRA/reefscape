@@ -3,11 +3,16 @@
 This repo stores the 100 SRA's FRC robot code for the 2025 game season. Good luck to all teams!
 
 ## Team Members
-- caleb
-- kyte 
-- malik
+- Sam
+- Kahen
+- Jari
+- Khalfani
+- Quadir
+- Caleb
+- Dylan
+- Kyte
+- Malik
 - Julius
-- David
 - Kendra
 
 ## Todos
