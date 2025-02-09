@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.spark.SparkMax;
 import frc.robot.Constants.ArmConstants;
@@ -15,18 +16,17 @@ public class LiftArmSubsystem extends SubsystemBase {
   private final SparkMax m_armLiftMotor = new SparkMax(ArmConstants.kCanid_ArmLift, MotorType.kBrushless);
 
   public LiftArmSubsystem() {
+    // Default lift arm command is to turn off the motor and stay idle
     setDefaultCommand(
-        runOnce(() -> m_armLiftMotor.disable()));
+        runOnce(() -> m_armLiftMotor.disable()).andThen(run(() -> {})));
   }
 
-  public void MoveArm(boolean on) {
-    // main command for moving the arm
-    if (on) {
-      m_armLiftMotor.set(ArmConstants.kArmSpeed); // modify speed based on max output constant
+  public Command moveArmCommand(boolean forwardDirection) {
+    // main command for moving the lift arm in either direction
+    if (forwardDirection) {
+      return run(() -> m_armLiftMotor.set(ArmConstants.kArmSpeed));
     } else {
-      m_armLiftMotor.set(ArmConstants.kArmSpeed * -1);
+      return run(() -> m_armLiftMotor.set(ArmConstants.kArmSpeed * -1));
     }
-
   }
-
 }
