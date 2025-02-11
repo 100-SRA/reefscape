@@ -6,13 +6,11 @@ import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.AlgaeArmSubsystem;
 import frc.robot.subsystems.LiftArmSubsystem;
 
-
-
 public class ReefScapeCommandBot {
   // Robot subsystems
   private final Drive m_drive = new Drive();
   private final LiftArmSubsystem m_liftArm = new LiftArmSubsystem();
-
+  private final AlgaeArmSubsystem m_AlgaeArm = new AlgaeArmSubsystem();
 
   // Driver's controller
   private final CommandPS4Controller m_driverControllerA = new CommandPS4Controller(
@@ -33,5 +31,8 @@ public class ReefScapeCommandBot {
     // Set control of lift arm -> up and down on the d-pad
     m_driverControllerB.povUp().whileTrue(m_liftArm.moveArmCommand(true));
     m_driverControllerB.povDown().whileTrue(m_liftArm.moveArmCommand(false));
+
+    // Sets the controls for the algae arm to the right stick on controler 
+  
   }
 }
