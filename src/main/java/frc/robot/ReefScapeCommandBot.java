@@ -15,17 +15,23 @@ public class ReefScapeCommandBot {
 
 
   // Driver's controller
-  private final CommandPS4Controller m_driverController = new CommandPS4Controller(
+  private final CommandPS4Controller m_driverControllerA = new CommandPS4Controller(
       OperatorConstants.kDriverControllerPort_A);
+  private final CommandPS4Controller m_driverControllerB = new CommandPS4Controller(
+      OperatorConstants.kDriverControllerPort_B); 
 
   // Map robot and controller conditions to commands
   public void configureBindings() {
     // Set control of drive subsystem -> 2 stick arcade drive
     m_drive.setDefaultCommand(
-        m_drive.arcadeDriveCommand(() -> -m_driverController.getLeftY(), () -> -m_driverController.getRightX()));
+    // uses left stick to drive
+    m_drive.arcadeDriveCommand(() -> -m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getLeftX())); 
+
+    // uses left stick to go forward and backward and right to go left and right
+    //m_drive.arcadeDriveCommand(() -> -m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getRightX()));
 
     // Set control of lift arm -> up and down on the d-pad
-    m_driverController.povUp().whileTrue(m_liftArm.moveArmCommand(true));
-    m_driverController.povDown().whileTrue(m_liftArm.moveArmCommand(false));
+    m_driverControllerB.povUp().whileTrue(m_liftArm.moveArmCommand(true));
+    m_driverControllerB.povDown().whileTrue(m_liftArm.moveArmCommand(false));
   }
 }
