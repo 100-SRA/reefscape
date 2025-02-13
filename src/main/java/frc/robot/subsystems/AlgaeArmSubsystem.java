@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import java.util.function.DoubleSupplier;
 import com.revrobotics.spark.SparkMax;
 import frc.robot.Constants.AlgaeArmConstants;
-import frc.robot.Constants.ArmConstants;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 public class AlgaeArmSubsystem extends SubsystemBase {
@@ -15,11 +14,10 @@ public class AlgaeArmSubsystem extends SubsystemBase {
 public AlgaeArmSubsystem() {
     setDefaultCommand(
         runOnce(() -> m_algaeArmMotor.disable()).andThen(run(() -> {}))); //automaticaly sets the motor to off 
-}
+} 
 
-    public Command MoveAlgaeArm(DoubleSupplier speed) {
-        //This is the main command for moving the arm
-         return run(() -> m_algaeArmMotor.set(speed.getAsDouble()));
-       
+public Command MoveAlgaeArm(DoubleSupplier dir) {
+        //This is the main command for moving the arm with dir being the direction of the stick 
+        return run(() -> m_algaeArmMotor.set(AlgaeArmConstants.kAlgaeArmSpeed * dir.getAsDouble()));
     }
 }

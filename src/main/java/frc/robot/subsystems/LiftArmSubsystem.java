@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.spark.SparkMax;
 import frc.robot.Constants.ArmConstants;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
-import java.util.function.DoubleSupplier;
 
 public class LiftArmSubsystem extends SubsystemBase {
   /** Main arm motor are using a NEO motor connected with CAN */

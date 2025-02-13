@@ -23,7 +23,7 @@ public class ReefScapeCommandBot {
     // Set control of drive subsystem -> 2 stick arcade drive
     m_drive.setDefaultCommand(
     // uses left stick to drive
-    m_drive.arcadeDriveCommand(() -> -m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getLeftX())); 
+    m_drive.arcadeDriveCommand(() -> m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getLeftX())); 
 
     // uses left stick to go forward and backward and right to go left and right
     //m_drive.arcadeDriveCommand(() -> -m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getRightX()));
@@ -33,6 +33,6 @@ public class ReefScapeCommandBot {
     m_driverControllerB.povDown().whileTrue(m_liftArm.moveArmCommand(false));
 
     // Sets the controls for the algae arm to the right stick on controler 
-  
+    m_AlgaeArm.MoveAlgaeArm(() -> m_driverControllerB.getRightY());
   }
 }
