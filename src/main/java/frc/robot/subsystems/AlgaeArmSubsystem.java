@@ -16,8 +16,12 @@ public AlgaeArmSubsystem() {
         runOnce(() -> m_algaeArmMotor.disable()).andThen(run(() -> {}))); //automaticaly sets the motor to off 
 } 
 
-public Command MoveAlgaeArm(DoubleSupplier dir) {
+public Command MoveAlgaeArm(boolean forwardDirection ) {
         //This is the main command for moving the arm with dir being the direction of the stick 
-        return run(() -> m_algaeArmMotor.set(AlgaeArmConstants.kAlgaeArmSpeed * dir.getAsDouble()));
+        if (forwardDirection) {
+            return run(() -> m_algaeArmMotor.set(AlgaeArmConstants.kAlgaeArmSpeed));
+        } else {
+            return run(() -> m_algaeArmMotor.set(AlgaeArmConstants.kAlgaeArmSpeed * -1));
+        }
     }
 }
