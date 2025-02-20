@@ -11,6 +11,8 @@ public class AlgaeArmSubsystem extends SubsystemBase {
     /* The main arm motor uses a NEO moter conected with CAN */
     private final SparkMax m_algaeArmMotor = new SparkMax(AlgaeArmConstants.kCanid_AlgaeIntakeArm,MotorType.kBrushless);
 
+    private final SparkMax m_algaeIntakeMotor = new SparkMax(AlgaeArmConstants.kCanid_ArmIntake, MotorType.kBrushless);
+
 public AlgaeArmSubsystem() {
     setDefaultCommand(
         runOnce(() -> m_algaeArmMotor.disable()).andThen(run(() -> {}))); //automaticaly sets the motor to off 
@@ -24,4 +26,13 @@ public Command MoveAlgaeArm(boolean forwardDirection ) {
             return run(() -> m_algaeArmMotor.set(AlgaeArmConstants.kAlgaeArmSpeed * -1));
         }
     }
+
+public Command AlgaeArmIntake(boolean forwardDirection){
+    if (forwardDirection) {
+        return run(() -> m_algaeIntakeMotor.set(AlgaeArmConstants.kAlgaeIntakeArmSpeed));
+     } else {
+            return run(() -> m_algaeIntakeMotor.set(AlgaeArmConstants.kAlgaeIntakeArmSpeed * -1));
+        }
+    } 
 }
+

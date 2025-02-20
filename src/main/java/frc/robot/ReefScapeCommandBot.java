@@ -35,5 +35,7 @@ public class ReefScapeCommandBot {
     // Sets the controls for the algae arm to the right stick on controler X makes it go forward and circle makes it go down
     m_driverControllerB.cross().whileTrue(m_AlgaeArm.MoveAlgaeArm(true));
     m_driverControllerB.circle().whileTrue(m_AlgaeArm.MoveAlgaeArm(false));
+
+    m_driverControllerA.L1().whileTrue(m_AlgaeArm.AlgaeArmIntake(true));
   }
 }
