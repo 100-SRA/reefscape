@@ -60,6 +60,10 @@ public final class Constants {
     /* Can id for the algae intake mechanism */
     public static final int kCanid_AlgaeIntakeArm = 2;
     public static final double kAlgaeArmSpeed = 0.4; // sets the speed of the arm
+    public static final int kCanid_ArmIntake = 3;
+    public static final int kPortPWM_ArmShooter = 4;
+    public static final double kAlgaeIntakeArmSpeed = 0.6; // sets the speed of the intake of the motor 
+
   }
 
 }
