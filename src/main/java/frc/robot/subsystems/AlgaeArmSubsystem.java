@@ -22,7 +22,7 @@ public AlgaeArmSubsystem() {
 } 
 
 public Command MoveAlgaeArm(boolean forwardDirection ) {
-        //This is the main command for moving the arm with dir being the direction of the stick 
+        //This is the main command for moving the arm 
         if (forwardDirection) {
             return run(() -> m_algaeArmMotor.set(AlgaeArmConstants.kAlgaeArmSpeed));
         } else {
@@ -31,10 +31,11 @@ public Command MoveAlgaeArm(boolean forwardDirection ) {
     }
 
 public Command AlgaeArmIntake(boolean forwardDirection){
+    //This is the command for actvating 
     if (forwardDirection) {
-        return run(() -> m_algaeIntakeMotor.set(AlgaeArmConstants.kAlgaeIntakeArmSpeed));
+        return run(() -> m_algaeIntakeMotor.set(AlgaeArmConstants.kAlgaeIntakeSpeed));
      } else {
-            return run(() -> m_algaeIntakeMotor.set(AlgaeArmConstants.kAlgaeIntakeArmSpeed * -1));
+            return run(() -> m_algaeIntakeMotor.set(AlgaeArmConstants.kAlgaeIntakeSpeed * -1));
         }
     } 
 
