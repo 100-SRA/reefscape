@@ -35,9 +35,8 @@ public class ReefScapeCommandBot {
     m_driverControllerB.cross().whileTrue(m_AlgaeArm.MoveAlgaeArm(true)); // When X is pressed it will make the arm go up
     m_driverControllerB.circle().whileTrue(m_AlgaeArm.MoveAlgaeArm(false)); // When circle is pressed it will make the arm go down
     
-    m_driverControllerA.cross().whileTrue(m_AlgaeArm.AlgaeArmIntake(true)); // When L1 is pressed it will actvate the intake 
-    m_driverControllerA.circle().whileTrue(m_AlgaeArm.AlgaeArmIntake(false)); // When R1 is pressed it will make the shooter push out the ball
+    //m_driverControllerA.cross().whileTrue(m_AlgaeArm.AlgaeArmIntake(true)); // When L1 is pressed it will actvate the intake 
+    //m_driverControllerA.circle().whileTrue(m_AlgaeArm.AlgaeArmIntake(false)); // When R1 is pressed it will make the shooter push out the ball
 
-    m_driverControllerA.L1().whileTrue(m_AlgaeArm.AlgaeArmShoot()); // When L1 is pressed it will actvate the shooter motor 
   }
 }
