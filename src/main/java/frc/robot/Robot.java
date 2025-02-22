@@ -19,7 +19,7 @@ public class Robot extends TimedRobot {
 
   // Instantiate robot
   private final ReefScapeCommandBot m_robot = new ReefScapeCommandBot();
-
+  
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -27,8 +27,9 @@ public class Robot extends TimedRobot {
    */
   public Robot() {
     // Configure default commands and bindings
-    CameraServer.startAutomaticCapture(); // Actvate the webcam server
     m_robot.configureBindings();
+    CameraServer.startAutomaticCapture(); // Actvate the webcam server
+
   }
 
   /**
