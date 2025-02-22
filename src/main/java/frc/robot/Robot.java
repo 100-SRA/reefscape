@@ -27,8 +27,8 @@ public class Robot extends TimedRobot {
    */
   public Robot() {
     // Configure default commands and bindings
-    m_robot.configureBindings();
     CameraServer.startAutomaticCapture(); // Actvate the webcam server
+    m_robot.configureBindings();
   }
 
   /**
