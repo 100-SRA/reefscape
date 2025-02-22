@@ -20,13 +20,10 @@ public class ReefScapeCommandBot {
 
   // Map robot and controller conditions to commands
   public void configureBindings() {
-    // Set control of drive subsystem -> 2 stick arcade drive
+    // Set control of drive subsystem -> 1 stick arcade drive
     m_drive.setDefaultCommand(
     // uses left stick to drive
     m_drive.arcadeDriveCommand(() -> m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getLeftX())); 
-
-    // uses left stick to go forward and backward and right to go left and right
-    //m_drive.arcadeDriveCommand(() -> -m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getRightX()));
 
     // Set control of lift arm -> up and down on the d-pad
     m_driverControllerB.povUp().whileTrue(m_liftArm.moveArmCommand(true));
@@ -35,8 +32,11 @@ public class ReefScapeCommandBot {
     m_driverControllerB.cross().whileTrue(m_AlgaeArm.MoveAlgaeArm(true)); // When X is pressed it will make the arm go up
     m_driverControllerB.circle().whileTrue(m_AlgaeArm.MoveAlgaeArm(false)); // When circle is pressed it will make the arm go down
     
-    //m_driverControllerA.cross().whileTrue(m_AlgaeArm.AlgaeArmIntake(true)); // When L1 is pressed it will actvate the intake 
-    //m_driverControllerA.circle().whileTrue(m_AlgaeArm.AlgaeArmIntake(false)); // When R1 is pressed it will make the shooter push out the ball
-
+    // Algae controls:
+    // Use L1, L2 for intake motor and R1, R2 for shooter motor
+    m_driverControllerA.L1().whileTrue(m_AlgaeArm.IntakeAlgae());
+    m_driverControllerA.L2().whileTrue(m_AlgaeArm.DropAlgae());
+    m_driverControllerA.R1().whileTrue(m_AlgaeArm.ShootAlgae());
+    m_driverControllerA.R2().whileTrue(m_AlgaeArm.ReverseShootAlgae());
   }
 }
