@@ -5,12 +5,14 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.AlgaeArmSubsystem;
 import frc.robot.subsystems.LiftArmSubsystem;
+import frc.robot.subsystems.DropboxSubsystem;
 
 public class ReefScapeCommandBot {
   // Robot subsystems
   private final Drive m_drive = new Drive();
   private final LiftArmSubsystem m_liftArm = new LiftArmSubsystem();
   private final AlgaeArmSubsystem m_AlgaeArm = new AlgaeArmSubsystem();
+  private final DropboxSubsystem m_Dropbox = new DropboxSubsystem();
 
   // Driver's controller
   private final CommandPS4Controller m_driverControllerA = new CommandPS4Controller(
@@ -38,5 +40,10 @@ public class ReefScapeCommandBot {
     m_driverControllerA.L2().whileTrue(m_AlgaeArm.DropAlgae());
     m_driverControllerA.R1().whileTrue(m_AlgaeArm.ShootAlgae());
     m_driverControllerA.R2().whileTrue(m_AlgaeArm.ReverseShootAlgae());
+
+    // Dropbox controls::
+    // Use triangle to open and square to close
+    m_driverControllerB.triangle().whileTrue(m_dropbox.OpenDropbox());
+    m_driverControllerB.square().whileTrue(m_dropbox.CloseDropbox());
   }
 }

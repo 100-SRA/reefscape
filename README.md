@@ -31,6 +31,12 @@ This repo stores the 100 SRA's FRC robot code for the 2025 game season. Good luc
     - [x] determine motor type
     - CAN bus-linked Spark Max (CAN ID: 2)
 - [ ] implement coral (PVC) control
+    - FTC Rev motor
+    - Controller B:
+        - *triangle* to open
+        - *square* to close
+    - [ ] what motor controller?
+    - [ ] what motor controller port or CAN id?
 - [ ] implement autonomous
     - [ ] plan autonomous
 

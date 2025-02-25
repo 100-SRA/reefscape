@@ -65,4 +65,11 @@ public final class Constants {
     public static final double kAlgaeIntakeSpeed = .9; // sets the speed of the intake of the motor 
     public static final double kAlgaeShooterSpeed = 0.8; // sets the speed of the shooter motor 
   }
+
+  public static class DropboxConstants {
+      /* TODO: change this dummhy value to true PWM port or CAN ID */
+      public static final int kCANId_DropboxMotor = 999;
+
+      public static final double kDropboxSpeed = 0.5;
+  }
 }
