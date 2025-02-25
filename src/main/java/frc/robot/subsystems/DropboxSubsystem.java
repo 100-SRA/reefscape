@@ -7,13 +7,15 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DropboxConstants;
+import com.revrobotics.spark.SparkMax;
+
 
 public class DropboxSubsystem extends SubsystemBase {
     /*
      * The motor used for the dropbox is an FTC REV motor
      */
     // TODO: change this to the correct motor controller
-    private final SparkMax m_dropboxMotor = new SparkMax(DropboxConstants.kCANId_DropboxMotor);
+    private final SparkMax m_dropboxMotor = new SparkMax(DropboxConstants.kCANId_DropboxMotor, null);
 
     /** Creates a new DropboxSubsystem and disables the motor. */
     public DropboxSubsystem() {

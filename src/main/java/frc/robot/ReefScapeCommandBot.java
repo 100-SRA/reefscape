@@ -43,7 +43,7 @@ public class ReefScapeCommandBot {
 
     // Dropbox controls::
     // Use triangle to open and square to close
-    m_driverControllerB.triangle().whileTrue(m_dropbox.OpenDropbox());
-    m_driverControllerB.square().whileTrue(m_dropbox.CloseDropbox());
+    m_driverControllerB.triangle().whileTrue(m_Dropbox.OpenDropbox());
+    m_driverControllerB.square().whileTrue(m_Dropbox.CloseDropbox());
   }
 }
