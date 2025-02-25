@@ -48,6 +48,16 @@ public final class Constants {
     public static final int kPortPWM_Drivetrain_FL = 1;
     public static final int kPortPWM_Drivetrain_FR = 4;
     public static final int kPortPWM_Drivetrain_BR = 5;
+    //sets up the encoder on the drivetrain
+    public static final int kkEncoderPorts_Left[] = {0,1}
+    public static final boolean kEncoderReversed_Left = false;
+    // cycles per revolution (see encoder spec)
+    public static final int kEncoderResolution = 2048;
+    public static final double kWheelRadiusMeters = 0.0762;
+    // Encoders directly on the wheel shaft
+    // Calculate the rolling distance corresponding to a single encoder pulse
+    // (also called a cycle)
+    public static final double kEncoderDistancePerPulse = 2 * Math.PI * kWheelRadiusMeters / kEncoderResolution;
   }
 
   public static class ArmConstants {
