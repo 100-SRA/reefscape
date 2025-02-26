@@ -49,7 +49,7 @@ public final class Constants {
     public static final int kPortPWM_Drivetrain_FR = 4;
     public static final int kPortPWM_Drivetrain_BR = 5;
     //sets up the encoder on the drivetrain
-    public static final int kkEncoderPorts_Left[] = {0,1}
+    public static final int kkEncoderPorts_Left[] = {0,1};
     public static final boolean kEncoderReversed_Left = false;
     // cycles per revolution (see encoder spec)
     public static final int kEncoderResolution = 2048;
