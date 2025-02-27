@@ -20,6 +20,12 @@ public class Drive extends SubsystemBase {
 
   // Differential drive setup for arcade driving
   private final DifferentialDrive m_drive = new DifferentialDrive(m_leftLeader::set, m_rightLeader::set);
+
+  // Drivetrain encoder (left side)
+  private final Encoder m_leftEncoder = new Encoder(
+          DriveConstants.kEncoderPorts_Left[0],
+          DriveConstants.kEncoderPorts_Left[1],
+          DriveConstants.kEncoderReversed_Left);
   
   /** Creates a new DriveSubsystem. */
   public Drive() {
@@ -29,6 +35,10 @@ public class Drive extends SubsystemBase {
     // Make secondary motors on each side follow the primary motors
     m_leftLeader.addFollower(m_leftFollower);
     m_rightLeader.addFollower(m_rightFollower);
+
+    // Configure encoder
+    m_leftEncoder.setDistancePerPulse(
+            DriveConstants.kEncoderDistancePerPulse);
   }
 
   /**
@@ -39,5 +49,23 @@ public class Drive extends SubsystemBase {
   public Command arcadeDriveCommand(DoubleSupplier fwd, DoubleSupplier rot) {
     // Read the double values from the controller for the forward motion and rotation values
     return run(() -> m_drive.arcadeDrive(fwd.getAsDouble(), rot.getAsDouble()));
+  }
+
+  /*
+   * Arcade drive a set distance command
+   */
+  public Command driveDistanceCommand(double distanceMeters, double speed) {
+      return runOnce(
+              /* Reset encoder once at the beginning */
+              () -> m_leftEncoder.reset())
+          .andThen(
+                  /* Drive straight at the set speed */
+                  run() -> m_drive.arcadeDrive(speed, 0.0))
+          .until(
+                  /* Check encoder distance against target meters */
+                  () -> m_leftEncoder.getDistance() >= distanceMeters)
+          .finallyDo(
+                  /* Stop the drivetrain when the command ends */
+                  () -> m_drive.stopMotor());
   }
 }

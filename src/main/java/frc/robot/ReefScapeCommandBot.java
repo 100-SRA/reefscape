@@ -46,4 +46,13 @@ public class ReefScapeCommandBot {
     m_driverControllerB.triangle().whileTrue(m_Dropbox.OpenDropbox());
     m_driverControllerB.square().whileTrue(m_Dropbox.CloseDropbox());
   }
+
+
+  // Basic autonomous command to drive 0.5 meters forward and stop
+  public Command getAutonomousCommand() {
+      return m_drive.driveDistanceCommand(
+              AutoConstants.kAutoLeaveDistance,
+              AutoConstants.kAutoLeaveSpeed)
+          .withTimeout(AutoConstants.kAutoLeaveTimeout);
+  }
 }
