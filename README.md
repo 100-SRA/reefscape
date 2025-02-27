@@ -37,6 +37,6 @@ This repo stores the 100 SRA's FRC robot code for the 2025 game season. Good luc
         - *square* to close
     - [ ] what motor controller?
     - [ ] what motor controller port or CAN id?
-- [ ] implement autonomous
-    - [ ] plan autonomous
+- [x] implement autonomous
+    - [x] plan autonomous
 
