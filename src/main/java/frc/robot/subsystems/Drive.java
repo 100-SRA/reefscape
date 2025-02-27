@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
 import java.util.function.DoubleSupplier;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 
@@ -60,7 +61,7 @@ public class Drive extends SubsystemBase {
               () -> m_leftEncoder.reset())
           .andThen(
                   /* Drive straight at the set speed */
-                  run() -> m_drive.arcadeDrive(speed, 0.0))
+                  () -> m_drive.arcadeDrive(speed, 0.0))
           .until(
                   /* Check encoder distance against target meters */
                   () -> m_leftEncoder.getDistance() >= distanceMeters)
