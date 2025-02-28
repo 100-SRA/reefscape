@@ -32,8 +32,8 @@ public final class Constants {
 
   public static class AutoConstants {
     /* How far the robot will drive out the starting zone for autonomous */
-    public static final double kAutoLeaveDistance = 0.5;
-    public static final double kAutoLeaveSpeed = 0.5;
+    public static final double kAutoLeaveDistance = .5;
+    public static final double kAutoLeaveSpeed = 1;
     public static final double kAutoLeaveTimeout = 5;
   }
 
@@ -80,7 +80,7 @@ public final class Constants {
 
   public static class DropboxConstants {
       /* TODO: change this dummhy value to true PWM port or CAN ID */
-      public static final int kCANId_DropboxMotor = 999;
+      public static final int kPortPWM_DropboxMotor = 3;
 
       public static final double kDropboxSpeed = 0.5;
   }

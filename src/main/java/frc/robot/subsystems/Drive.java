@@ -57,16 +57,16 @@ public class Drive extends SubsystemBase {
    */
   public Command driveDistanceCommand(double distanceMeters, double speed) {
       return runOnce(
-              /* Reset encoder once at the beginning */
+              /* Reset encoder once at the beginning*/ 
               () -> m_leftEncoder.reset())
           .andThen(
                   /* Drive straight at the set speed */
                   () -> m_drive.arcadeDrive(speed, 0.0))
-          .until(
-                  /* Check encoder distance against target meters */
-                  () -> m_leftEncoder.getDistance() >= distanceMeters)
-          .finallyDo(
+           .until(
+                  // Check encoder distance against target meters 
+                  () -> 0 == distanceMeters);
+          //.finallyDo(
                   /* Stop the drivetrain when the command ends */
-                  () -> m_drive.stopMotor());
+                 // () -> m_drive.s;
   }
 }
