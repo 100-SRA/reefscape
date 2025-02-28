@@ -33,7 +33,7 @@ public final class Constants {
   public static class AutoConstants {
     /* How far the robot will drive out the starting zone for autonomous */
     public static final double kAutoLeaveDistance = .5;
-    public static final double kAutoLeaveSpeed = 1;
+    public static final double kAutoLeaveSpeed = .5;
     public static final double kAutoLeaveTimeout = 5;
   }
 
@@ -74,7 +74,7 @@ public final class Constants {
     public static final double kAlgaeArmSpeed = 0.4; // sets the speed of the arm
     public static final int kCanid_ArmIntake = 3;
     public static final int kPortPWM_ArmShooter = 2;
-    public static final double kAlgaeIntakeSpeed = .9; // sets the speed of the intake of the motor 
+    public static final double kAlgaeIntakeSpeed = .5; // sets the speed of the intake of the motor 
     public static final double kAlgaeShooterSpeed = 0.8; // sets the speed of the shooter motor 
   }
 
