@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
 import java.util.function.DoubleSupplier;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 
@@ -22,12 +21,6 @@ public class Drive extends SubsystemBase {
   // Differential drive setup for arcade driving
   private final DifferentialDrive m_drive = new DifferentialDrive(m_leftLeader::set, m_rightLeader::set);
 
-  // Drivetrain encoder (left side)
-  private final Encoder m_leftEncoder = new Encoder(
-          DriveConstants.kEncoderPorts_Left[0],
-          DriveConstants.kEncoderPorts_Left[1],
-          DriveConstants.kEncoderReversed_Left);
-  
   /** Creates a new DriveSubsystem. */
   public Drive() {
     // Invert one side to make positive voltage drive both sides forward
@@ -36,10 +29,6 @@ public class Drive extends SubsystemBase {
     // Make secondary motors on each side follow the primary motors
     m_leftLeader.addFollower(m_leftFollower);
     m_rightLeader.addFollower(m_rightFollower);
-
-    // Configure encoder
-    m_leftEncoder.setDistancePerPulse(
-            DriveConstants.kEncoderDistancePerPulse);
   }
 
   /**
@@ -53,20 +42,13 @@ public class Drive extends SubsystemBase {
   }
 
   /*
-   * Arcade drive a set distance command
+   * Arcade drive straight indefinitely at set speed (stop when command ends);
+   * Use this with a timeout for now until we have the encoder(s) on the bot.
    */
-  public Command driveDistanceCommand(double distanceMeters, double speed) {
-      return runOnce(
-              /* Reset encoder once at the beginning*/ 
-              () -> m_leftEncoder.reset())
-          .andThen(
-                  /* Drive straight at the set speed */
-                  () -> m_drive.arcadeDrive(speed, 0.0))
-           .until(
-                  // Check encoder distance against target meters 
-                  () -> 0 == distanceMeters);
-          //.finallyDo(
-                  /* Stop the drivetrain when the command ends */
-                 // () -> m_drive.s;
+  public Command driveStraightCommand(double speed) {
+    /* Drive straight at the set speed */
+    /* Stop the drivetrain when the command ends */
+    return run(() -> m_drive.arcadeDrive(speed, 0.0))
+        .finallyDo(interrupted -> m_drive.stopMotor());
   }
 }

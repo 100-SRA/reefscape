@@ -50,11 +50,9 @@ public class ReefScapeCommandBot {
   }
 
 
-  // Basic autonomous command to drive 0.5 meters forward and stop
+  // Basic autonomous command to drive forward and stop
   public Command getAutonomousCommand() {
-      return m_drive.driveDistanceCommand(
-              AutoConstants.kAutoLeaveDistance,
-              AutoConstants.kAutoLeaveSpeed)
+      return m_drive.driveStraightCommand(AutoConstants.kAutoLeaveSpeed)
           .withTimeout(AutoConstants.kAutoLeaveTimeout);
   }
 }
