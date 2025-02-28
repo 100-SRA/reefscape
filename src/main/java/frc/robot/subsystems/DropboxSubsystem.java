@@ -15,9 +15,9 @@ public class DropboxSubsystem extends SubsystemBase {
      * The motor used for the dropbox is an FTC REV motor
      */
     // TODO: change this to the correct motor controller
-    private final SparkMax m_dropboxMotor = new SparkMax(DropboxConstants.kCANId_DropboxMotor, null);
+    //private final Spark m_dropboxMotor = new Spark(DropboxConstants.kPortPWM_DropboxMotor);
 
-    /** Creates a new DropboxSubsystem and disables the motor. */
+    /** Creates a new DropboxSubsystem and disables the motor. 
     public DropboxSubsystem() {
         setDefaultCommand(
                 runOnce(() -> m_dropboxMotor.disable())
@@ -30,7 +30,7 @@ public class DropboxSubsystem extends SubsystemBase {
      */
     /**
     * Command to open the dropbox
-    */
+    
     public Command OpenDropbox() {
       return run(() -> m_dropboxMotor.set(
                   DropboxConstants.kDropboxSpeed));
@@ -38,9 +38,9 @@ public class DropboxSubsystem extends SubsystemBase {
 
     /**
     * Command to close the dropbox
-    */
+    
     public Command CloseDropbox() {
       return run(() -> m_dropboxMotor.set(
                   DropboxConstants.kDropboxSpeed * -1));
-    }
+    }*/
 }
