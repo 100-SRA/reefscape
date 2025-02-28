@@ -7,6 +7,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.AlgaeArmSubsystem;
 import frc.robot.subsystems.LiftArmSubsystem;
+import frc.robot.subsystems.WinchSubsystem;
 import frc.robot.subsystems.DropboxSubsystem;
 
 public class ReefScapeCommandBot {
@@ -14,7 +15,7 @@ public class ReefScapeCommandBot {
   private final Drive m_drive = new Drive();
   private final LiftArmSubsystem m_liftArm = new LiftArmSubsystem();
   private final AlgaeArmSubsystem m_AlgaeArm = new AlgaeArmSubsystem();
-  private final DropboxSubsystem m_Dropbox = new DropboxSubsystem();
+  private final WinchSubsystem m_Winch = new WinchSubsystem();
 
   // Driver's controller
   private final CommandPS4Controller m_driverControllerA = new CommandPS4Controller(
@@ -47,6 +48,10 @@ public class ReefScapeCommandBot {
     // Use triangle to open and square to close
     //m_driverControllerB.triangle().whileTrue(m_Dropbox.OpenDropbox());
     //m_driverControllerB.square().whileTrue(m_Dropbox.CloseDropbox());
+
+    // Winch controls:
+    m_driverControllerB.povUp().whileTrue(m_Winch.moveWinchCommand(true));
+    m_driverControllerB.povUp().whileTrue(m_Winch.moveWinchCommand(false));
   }
 
 

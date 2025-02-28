@@ -78,10 +78,10 @@ public final class Constants {
     public static final double kAlgaeShooterSpeed = 0.8; // sets the speed of the shooter motor 
   }
 
-  public static class DropboxConstants {
+  public static class WinchConstants {
       /* TODO: change this dummhy value to true PWM port or CAN ID */
-      public static final int kPortPWM_DropboxMotor = 3;
+      public static final int kCanid_winchMotor = 3;
 
-      public static final double kDropboxSpeed = 0.5;
+      public static final double kWinchSpeed = 0.5;
   }
 }

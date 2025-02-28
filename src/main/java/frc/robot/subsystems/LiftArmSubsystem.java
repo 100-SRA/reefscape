@@ -12,7 +12,7 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 public class LiftArmSubsystem extends SubsystemBase {
   /** Main arm motor are using a NEO motor connected with CAN */
-  private final SparkMax m_armLiftMotor = new SparkMax(ArmConstants.kCanid_ArmLift, MotorType.kBrushless);
+  private SparkMax m_armLiftMotor = new SparkMax(ArmConstants.kCanid_ArmLift, MotorType.kBrushless);
 
   public LiftArmSubsystem() {
     // Default lift arm command is to turn off the motor and stay idle
