@@ -50,8 +50,8 @@ public class ReefScapeCommandBot {
     //m_driverControllerB.square().whileTrue(m_Dropbox.CloseDropbox());
 
     // Winch controls:
-    m_driverControllerB.povUp().whileTrue(m_Winch.moveWinchCommand(true));
-    m_driverControllerB.povUp().whileTrue(m_Winch.moveWinchCommand(false));
+    m_driverControllerB.L3().whileTrue(m_Winch.moveWinchCommand(true));
+    m_driverControllerB.R3().whileTrue(m_Winch.moveWinchCommand(false));
   }
 
 
