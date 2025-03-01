@@ -79,8 +79,8 @@ public final class Constants {
   }
 
   public static class SwingArmConstants {
-      public static final int kPortPwm_WinchMotor = 2;
-      public static final int kPortPwm_SwingMotor = 3;
+      public static final int kPortPwm_WinchMotor = 3;
+      public static final int kPortPwm_SwingMotor = 2;
 
       public static final double kWinchSpeed = 0.5;
   }

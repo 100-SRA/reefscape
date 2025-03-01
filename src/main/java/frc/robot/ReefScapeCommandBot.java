@@ -15,12 +15,15 @@ public class ReefScapeCommandBot {
   private final LiftArmSubsystem m_liftArm = new LiftArmSubsystem();
   private final AlgaeArmSubsystem m_AlgaeArm = new AlgaeArmSubsystem();
   private final AlgaeSwingArm m_Winch = new AlgaeSwingArm();
+  private final AlgaeSwingArm m_SwingArm = new AlgaeSwingArm();
 
   // Driver's controller
   private final CommandPS4Controller m_driverControllerA = new CommandPS4Controller(
       OperatorConstants.kDriverControllerPort_A);
   private final CommandPS4Controller m_driverControllerB = new CommandPS4Controller(
       OperatorConstants.kDriverControllerPort_B); 
+
+  public boolean flipDrive = false;
 
   // Map robot and controller conditions to commands
   public void configureBindings() {
@@ -30,27 +33,28 @@ public class ReefScapeCommandBot {
     m_drive.arcadeDriveCommand(() -> m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getLeftX())); 
 
     // Set control of lift arm -> up and down on the d-pad
-    m_driverControllerB.povUp().whileTrue(m_liftArm.moveArmCommand(true));
-    m_driverControllerB.povDown().whileTrue(m_liftArm.moveArmCommand(false));
+    m_driverControllerB.L3().whileTrue(m_liftArm.moveArmCommand(true)); //lift arm will go up when left stick is pressed 
+    m_driverControllerB.R3().whileTrue(m_liftArm.moveArmCommand(false)); // lift arm will go down when right stick is pressed 
 
     m_driverControllerA.cross().whileTrue(m_AlgaeArm.MoveAlgaeArm(true)); // When X is pressed it will make the arm go up
     m_driverControllerA.circle().whileTrue(m_AlgaeArm.MoveAlgaeArm(false)); // When circle is pressed it will make the arm go down
     
     // Algae controls:
     // Use L1, L2 for intake motor and R1, R2 for shooter motor
-    m_driverControllerA.L1().whileTrue(m_AlgaeArm.IntakeAlgae());
+    m_driverControllerA.R2().whileTrue(m_AlgaeArm.IntakeAlgae());
     m_driverControllerA.L2().whileTrue(m_AlgaeArm.DropAlgae());
-    m_driverControllerA.R1().whileTrue(m_AlgaeArm.ShootAlgae());
-    m_driverControllerA.R2().whileTrue(m_AlgaeArm.ReverseShootAlgae());
 
     // Dropbox controls::
     // Use triangle to open and square to close
     //m_driverControllerB.triangle().whileTrue(m_Dropbox.OpenDropbox());
     //m_driverControllerB.square().whileTrue(m_Dropbox.CloseDropbox());
 
-    // Winch controls:
-    m_driverControllerB.L3().whileTrue(m_Winch.moveWinchCommand(true));
-    m_driverControllerB.R3().whileTrue(m_Winch.moveWinchCommand(false));
+    // Swing arm controls:
+    m_driverControllerB.povUp().whileTrue(m_Winch.moveWinchCommand(true));
+    m_driverControllerB.povDown().whileTrue(m_Winch.moveWinchCommand(false));
+    m_driverControllerB.povLeft().whileTrue(m_SwingArm.swingarCommand(true));
+    m_driverControllerB.povLeft().whileTrue(m_SwingArm.swingarCommand(false));
+    
   }
 
 
