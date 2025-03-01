@@ -7,15 +7,14 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.AlgaeArmSubsystem;
 import frc.robot.subsystems.LiftArmSubsystem;
-import frc.robot.subsystems.WinchSubsystem;
-import frc.robot.subsystems.DropboxSubsystem;
+import frc.robot.subsystems.AlgaeSwingArm;
 
 public class ReefScapeCommandBot {
   // Robot subsystems
   private final Drive m_drive = new Drive();
   private final LiftArmSubsystem m_liftArm = new LiftArmSubsystem();
   private final AlgaeArmSubsystem m_AlgaeArm = new AlgaeArmSubsystem();
-  private final WinchSubsystem m_Winch = new WinchSubsystem();
+  private final AlgaeSwingArm m_Winch = new AlgaeSwingArm();
 
   // Driver's controller
   private final CommandPS4Controller m_driverControllerA = new CommandPS4Controller(

@@ -3,13 +3,14 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
-import frc.robot.Constants.WinchConstants;;
+import frc.robot.Constants.SwingArmConstants;
 
-public class WinchSubsystem extends SubsystemBase {
+public class AlgaeSwingArm extends SubsystemBase {
     //The main motor for the winch is a brushed motor using a spark on pwm port 3
-    private final Spark m_winchMotor = new Spark(WinchConstants.kCanid_winchMotor);
+    private final Spark m_winchMotor = new Spark(SwingArmConstants.kPortPwm_WinchMotor);
+
     
-    public WinchSubsystem() {
+    public AlgaeSwingArm() {
 
         setDefaultCommand(
             // automatically disables the motor
@@ -18,9 +19,9 @@ public class WinchSubsystem extends SubsystemBase {
     public Command moveWinchCommand(boolean forwardDirection){
         //main command for moving the winch motor
         if (forwardDirection){
-            return run(() -> m_winchMotor.set(WinchConstants.kWinchSpeed));
+            return run(() -> m_winchMotor.set(SwingArmConstants.kWinchSpeed));
         } else {
-            return run(() -> m_winchMotor.set(WinchConstants.kWinchSpeed * -1));
+            return run(() -> m_winchMotor.set(SwingArmConstants.kWinchSpeed * -1));
         }
     }
 }
