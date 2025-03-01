@@ -30,16 +30,16 @@ public class ReefScapeCommandBot {
     m_drive.arcadeDriveCommand(() -> m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getLeftX())); 
 
     // Set control of lift arm -> up and down on the d-pad
-    m_driverControllerB.L3().whileTrue(m_liftArm.moveArmCommand(true)); //lift arm will go up when left stick is pressed 
-    m_driverControllerB.R3().whileTrue(m_liftArm.moveArmCommand(false)); // lift arm will go down when right stick is pressed 
+    m_driverControllerB.L1().whileTrue(m_liftArm.moveArmCommand(true)); //lift arm will go up when left stick is pressed 
+    m_driverControllerB.R1().whileTrue(m_liftArm.moveArmCommand(false)); // lift arm will go down when right stick is pressed 
 
     m_driverControllerA.cross().whileTrue(m_AlgaeArm.MoveAlgaeArm(true)); // When X is pressed it will make the arm go up
     m_driverControllerA.circle().whileTrue(m_AlgaeArm.MoveAlgaeArm(false)); // When circle is pressed it will make the arm go down
     
     // Algae controls:
     // Use L1, L2 for intake motor and R1, R2 for shooter motor
-    m_driverControllerA.R2().whileTrue(m_AlgaeArm.IntakeAlgae());
-    m_driverControllerA.L2().whileTrue(m_AlgaeArm.DropAlgae());
+    m_driverControllerB.cross().whileTrue(m_AlgaeArm.ShootAlgae());
+    m_driverControllerA.circle().whileTrue(m_AlgaeArm.ReverseShootAlgae());
 
     // Dropbox controls::
     // Use triangle to open and square to close
