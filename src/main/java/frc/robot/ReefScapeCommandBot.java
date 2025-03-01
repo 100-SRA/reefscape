@@ -7,15 +7,12 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.AlgaeArmSubsystem;
 import frc.robot.subsystems.LiftArmSubsystem;
-import frc.robot.subsystems.AlgaeSwingArm;
 
 public class ReefScapeCommandBot {
   // Robot subsystems
   private final Drive m_drive = new Drive();
   private final LiftArmSubsystem m_liftArm = new LiftArmSubsystem();
   private final AlgaeArmSubsystem m_AlgaeArm = new AlgaeArmSubsystem();
-  private final AlgaeSwingArm m_Winch = new AlgaeSwingArm();
-  private final AlgaeSwingArm m_SwingArm = new AlgaeSwingArm();
 
   // Driver's controller
   private final CommandPS4Controller m_driverControllerA = new CommandPS4Controller(
@@ -50,10 +47,7 @@ public class ReefScapeCommandBot {
     //m_driverControllerB.square().whileTrue(m_Dropbox.CloseDropbox());
 
     // Swing arm controls:
-    m_driverControllerB.povUp().whileTrue(m_Winch.moveWinchCommand(true));
-    m_driverControllerB.povDown().whileTrue(m_Winch.moveWinchCommand(false));
-    m_driverControllerB.povLeft().whileTrue(m_SwingArm.swingarCommand(true));
-    m_driverControllerB.povLeft().whileTrue(m_SwingArm.swingarCommand(false));
+
     
   }
 
