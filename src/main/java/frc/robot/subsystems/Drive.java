@@ -36,16 +36,12 @@ public class Drive extends SubsystemBase {
    *
    * @return a command to do arcade drive
    */
-  public Command arcadeDriveCommand(DoubleSupplier fwd, DoubleSupplier rot, boolean reverse) {
+  public Command arcadeDriveCommand(DoubleSupplier fwd, DoubleSupplier rot) {
     // Read the double values from the controller for the forward motion and rotation values
-    if (reverse){
-      return run(() -> m_drive.arcadeDrive(fwd.getAsDouble() * -1, rot.getAsDouble() * -1));
-    }
+
     return run(() -> m_drive.arcadeDrive(fwd.getAsDouble(), rot.getAsDouble()));
   }
-  public Command revDriveCommand(){
-    DriveConstants.revDrive = !DriveConstants.revDrive;
-    return null;}
+
 
 
   /*

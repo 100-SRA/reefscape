@@ -28,9 +28,8 @@ public class ReefScapeCommandBot {
     // Set control of drive subsystem -> 1 stick arcade drive
     m_drive.setDefaultCommand(
     // uses left stick to drive
-    m_drive.arcadeDriveCommand(() -> m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getRightX(), DriveConstants.revDrive)); 
+    m_drive.arcadeDriveCommand(() -> m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getRightX())); 
     // 
-    m_driverControllerA.share().onChange(m_drive.revDriveCommand());
     
 
     // Set control of lift arm -> up and down on the d-pad
