@@ -3,6 +3,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import frc.robot.Constants.AutoConstants;
+import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.AlgaeArmSubsystem;
@@ -27,7 +28,10 @@ public class ReefScapeCommandBot {
     // Set control of drive subsystem -> 1 stick arcade drive
     m_drive.setDefaultCommand(
     // uses left stick to drive
-    m_drive.arcadeDriveCommand(() -> m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getLeftX())); 
+    m_drive.arcadeDriveCommand(() -> m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getRightX(), DriveConstants.revDrive)); 
+    // 
+    m_driverControllerA.share().onChange(m_drive.revDriveCommand());
+    
 
     // Set control of lift arm -> up and down on the d-pad
     m_driverControllerB.L1().whileTrue(m_liftArm.moveArmCommand(true)); //lift arm will go up when left stick is pressed 

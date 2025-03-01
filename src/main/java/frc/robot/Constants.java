@@ -60,6 +60,7 @@ public final class Constants {
     // Calculate the rolling distance corresponding to a single encoder pulse
     // (also called a cycle)
     public static final double kEncoderDistancePerPulse = 2 * Math.PI * kWheelRadiusMeters / kEncoderResolution;
+    public static boolean revDrive = false;
   }
 
   public static class ArmConstants {
