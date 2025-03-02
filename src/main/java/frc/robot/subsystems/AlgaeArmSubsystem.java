@@ -15,7 +15,6 @@ public class AlgaeArmSubsystem extends SubsystemBase {
     private final SparkMax m_algaeIntakeMotor = new SparkMax(
             AlgaeArmConstants.kCanid_ArmIntake, MotorType.kBrushless);
 
-    private final Spark m_algaeShooterMotor = new Spark(AlgaeArmConstants.kPortPWM_ArmShooter); 
 
     // Constructor: set default behavior for motors to be no movement
     public AlgaeArmSubsystem() {
@@ -23,7 +22,6 @@ public class AlgaeArmSubsystem extends SubsystemBase {
             runOnce(() -> {
                 m_algaeArmMotor.disable();
                 m_algaeIntakeMotor.disable();
-                m_algaeShooterMotor.disable();
             })
             .andThen(run(() -> {}))); //automaticaly sets the motors to off 
     } 
@@ -51,16 +49,6 @@ public class AlgaeArmSubsystem extends SubsystemBase {
                     AlgaeArmConstants.kAlgaeIntakeSpeed * -1));
     }
 
-    // Spin shooter motor to launch algae
-    public Command ShootAlgae() {
-        return run(() -> m_algaeShooterMotor.set(
-                    AlgaeArmConstants.kAlgaeShooterSpeed));
-    }
 
-    // Run shooter motor in opposite direction (largely for testing)
-     public Command ReverseShootAlgae() {
-        return run(() -> m_algaeShooterMotor.set(
-                    AlgaeArmConstants.kAlgaeShooterSpeed * -1));
-    }
 }
 

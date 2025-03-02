@@ -41,8 +41,8 @@ public class ReefScapeCommandBot {
     
     // Algae controls:
     // Use L1, L2 for intake motor and R1, R2 for shooter motor
-    m_driverControllerB.cross().whileTrue(m_AlgaeArm.ShootAlgae());
-    m_driverControllerB.circle().whileTrue(m_AlgaeArm.ReverseShootAlgae());
+    m_driverControllerB.cross().whileTrue(m_AlgaeArm.IntakeAlgae());
+    m_driverControllerB.circle().whileTrue(m_AlgaeArm.DropAlgae());
 
     // Dropbox controls::
     // Use triangle to open and square to close
