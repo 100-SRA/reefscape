@@ -50,8 +50,8 @@ public final class Constants {
     public static final int kPortPWM_Drivetrain_FL = 1;
     public static final int kPortPWM_Drivetrain_FR = 4;
     public static final int kPortPWM_Drivetrain_BR = 5;
-    //sets up the encoder on the drivetrain
-    public static final int kEncoderPorts_Left[] = {0,1};
+    // sets up the encoder on the drivetrain
+    public static final int kEncoderPorts_Left[] = { 0, 1 };
     public static final boolean kEncoderReversed_Left = false;
     // cycles per revolution (see encoder spec)
     public static final int kEncoderResolution = 2048;
@@ -75,14 +75,14 @@ public final class Constants {
     public static final double kAlgaeArmSpeed = 0.4; // sets the speed of the arm
     public static final int kCanid_ArmIntake = 3;
     public static final int kPortPWM_ArmShooter = 2;
-    public static final double kAlgaeIntakeSpeed = .5; // sets the speed of the intake of the motor 
-    public static final double kAlgaeShooterSpeed = 0.8; // sets the speed of the shooter motor 
+    public static final double kAlgaeIntakeSpeed = .5; // sets the speed of the intake of the motor
+    public static final double kAlgaeShooterSpeed = 0.8; // sets the speed of the shooter motor
   }
 
   public static class SwingArmConstants {
-      public static final int kPortPwm_WinchMotor = 3;
-      public static final int kPortPwm_SwingMotor = 2;
+    public static final int kPortPwm_WinchMotor = 3;
+    public static final int kPortPwm_SwingMotor = 2;
 
-      public static final double kWinchSpeed = 0.5;
+    public static final double kWinchSpeed = 0.5;
   }
 }

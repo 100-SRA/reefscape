@@ -17,7 +17,8 @@ public class LiftArmSubsystem extends SubsystemBase {
   public LiftArmSubsystem() {
     // Default lift arm command is to turn off the motor and stay idle
     setDefaultCommand(
-        runOnce(() -> m_armLiftMotor.disable()).andThen(run(() -> {})));
+        runOnce(() -> m_armLiftMotor.disable()).andThen(run(() -> {
+        })));
   }
 
   public Command moveArmCommand(boolean forwardDirection) {

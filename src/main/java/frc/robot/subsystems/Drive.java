@@ -37,12 +37,11 @@ public class Drive extends SubsystemBase {
    * @return a command to do arcade drive
    */
   public Command arcadeDriveCommand(DoubleSupplier fwd, DoubleSupplier rot) {
-    // Read the double values from the controller for the forward motion and rotation values
+    // Read the double values from the controller for the forward motion and
+    // rotation values
 
     return run(() -> m_drive.arcadeDrive(fwd.getAsDouble(), rot.getAsDouble()));
   }
-
-
 
   /*
    * Arcade drive straight indefinitely at set speed (stop when command ends);
@@ -55,5 +54,4 @@ public class Drive extends SubsystemBase {
         .finallyDo(interrupted -> m_drive.stopMotor());
   }
 
-   
 }
