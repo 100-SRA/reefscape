@@ -20,15 +20,14 @@ public class ReefScapeCommandBot {
   private final CommandPS4Controller m_driverControllerB = new CommandPS4Controller(
       OperatorConstants.kDriverControllerPort_B);
 
-  public boolean flipDrive = false;
-
   // Map robot and controller conditions to commands
   public void configureBindings() {
-    // Set control of drive subsystem -> 1 stick arcade drive
+    // Set control of drive subsystem -> 2 stick arcade drive
     m_drive.setDefaultCommand(
         // uses left stick to drive
         m_drive.arcadeDriveCommand(() -> m_driverControllerA.getLeftY(), () -> -m_driverControllerA.getRightX()));
-    //
+    // Set driving reversal to the "share" button
+    m_driverControllerA.share().onTrue(m_drive.toggleReversedCommand());
 
     // Set control of lift arm -> up and down on the d-pad
     m_driverControllerB.L1().whileTrue(m_liftArm.moveArmCommand(true)); // lift arm will go up when left stick is
@@ -48,8 +47,8 @@ public class ReefScapeCommandBot {
 
     // Dropbox controls::
     // Use triangle to open and square to close
-    // m_driverControllerB.triangle().whileTrue(m_Dropbox.OpenDropbox());
-    // m_driverControllerB.square().whileTrue(m_Dropbox.CloseDropbox());
+    // m_driverControllerB.triangle().onTrue(m_Dropbox.OpenDropbox());
+    // m_driverControllerB.square().onTrue(m_Dropbox.CloseDropbox());
 
     // Swing arm controls:
 

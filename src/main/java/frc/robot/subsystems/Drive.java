@@ -20,6 +20,7 @@ public class Drive extends SubsystemBase {
 
   // Differential drive setup for arcade driving
   private final DifferentialDrive m_drive = new DifferentialDrive(m_leftLeader::set, m_rightLeader::set);
+  private boolean m_isReversed = false;
 
   /** Creates a new DriveSubsystem. */
   public Drive() {
@@ -32,15 +33,43 @@ public class Drive extends SubsystemBase {
   }
 
   /**
-   * Arcade drive command.
+   * Switches subsystem's drive direction.
+   */
+  private void toggleReversed() {
+    m_isReversed = !m_isReversed;
+  }
+
+  /**
+   * Applies forward and rotation values to differential arcade drive.
+   * @param forward power to apply to forward/backward motion
+   * @param rotation power to apply to left/right motion
+   */
+  private void arcadeDrive(double forward, double rotation) {
+    if (m_isReversed) {
+      // modify the forward/backward motion if we're reversed
+      forward *= -1;
+    }
+    m_drive.arcadeDrive(forward, rotation);
+  }
+
+  /**
+   * Builds command to switch the driving direction.
+   * 
+   * @return a command to switch the drive direction
+   */
+  public Command toggleReversedCommand() {
+    return run(() -> toggleReversed());
+  }
+
+  /**
+   * Builds command to control the arcade driving.
    *
    * @return a command to do arcade drive
    */
   public Command arcadeDriveCommand(DoubleSupplier fwd, DoubleSupplier rot) {
     // Read the double values from the controller for the forward motion and
     // rotation values
-
-    return run(() -> m_drive.arcadeDrive(fwd.getAsDouble(), rot.getAsDouble()));
+    return run(() -> arcadeDrive(fwd.getAsDouble(), rot.getAsDouble()));
   }
 
   /*
