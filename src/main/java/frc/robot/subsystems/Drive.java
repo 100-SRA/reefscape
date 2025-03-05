@@ -58,7 +58,7 @@ public class Drive extends SubsystemBase {
    * @return a command to switch the drive direction
    */
   public Command toggleReversedCommand() {
-    return run(() -> toggleReversed());
+    return runOnce(() -> toggleReversed());
   }
 
   /**
