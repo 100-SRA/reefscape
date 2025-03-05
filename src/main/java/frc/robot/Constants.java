@@ -79,7 +79,7 @@ public final class Constants {
     public static final double kAlgaeShooterSpeed = 0.8; // sets the speed of the shooter motor
   }
 
-  public static class SwingArmConstants {
+  public static class DealgefierConstants  {
     public static final int kPortPwm_WinchMotor = 3;
     public static final int kPortPwm_SwingMotor = 2;
 

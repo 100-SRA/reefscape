@@ -7,12 +7,14 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.AlgaeArmSubsystem;
 import frc.robot.subsystems.LiftArmSubsystem;
+import frc.robot.subsystems.DealgefierSubsystem;
 
 public class ReefScapeCommandBot {
   // Robot subsystems
   private final Drive m_drive = new Drive();
   private final LiftArmSubsystem m_liftArm = new LiftArmSubsystem();
   private final AlgaeArmSubsystem m_AlgaeArm = new AlgaeArmSubsystem();
+  private final DealgefierSubsystem m_Dealgefier = new DealgefierSubsystem();
 
   // Driver's controller
   private final CommandPS4Controller m_driverControllerA = new CommandPS4Controller(
@@ -48,12 +50,11 @@ public class ReefScapeCommandBot {
     m_driverControllerB.cross().whileTrue(m_AlgaeArm.IntakeAlgae());
     m_driverControllerB.circle().whileTrue(m_AlgaeArm.DropAlgae());
 
-    // Dropbox controls::
-    // Use triangle to open and square to close
-    // m_driverControllerB.triangle().onTrue(m_Dropbox.OpenDropbox());
-    // m_driverControllerB.square().onTrue(m_Dropbox.CloseDropbox());
-
     // Swing arm controls:
+    m_driverControllerA.povUp().whileTrue(m_Dealgefier.moveWinchCommand(true)); // When dpad up is pressed the arm will move up
+    m_driverControllerA.povDown().whileTrue(m_Dealgefier.moveWinchCommand(false)); // When dpad down is pressed the arm will move down
+    m_driverControllerA.cross().whileTrue(m_Dealgefier.SpinArmCommand(true)); // dealgifer arm will spin when X is pressed 
+
 
   }
 
