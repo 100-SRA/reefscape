@@ -37,11 +37,6 @@ public class ReefScapeCommandBot {
     m_driverControllerB.R1().whileTrue(m_liftArm.moveArmCommand(false)); // lift arm will go down when right stick is
                                                                          // pressed
 
-    m_driverControllerA.cross().whileTrue(m_AlgaeArm.MoveAlgaeArm(true)); // When X is pressed it will make the arm go
-                                                                          // up
-    m_driverControllerA.circle().whileTrue(m_AlgaeArm.MoveAlgaeArm(false)); // When circle is pressed it will make the
-                                                                            // arm go down
-
     m_driverControllerB.povUp().whileTrue(m_AlgaeArm.MoveAlgaeArm(false)); // When X is pressed it will make the arm go up
     m_driverControllerB.povDown().whileTrue(m_AlgaeArm.MoveAlgaeArm(true)); // When circle is pressed it will make the arm go down
     
