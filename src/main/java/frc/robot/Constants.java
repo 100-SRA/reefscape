@@ -80,9 +80,10 @@ public final class Constants {
   }
 
   public static class DealgefierConstants  {
-    public static final int kPortPwm_WinchMotor = 3;
-    public static final int kPortPwm_SwingMotor = 2;
+    public static final int kPortPwm_WinchMotor = 3; // pwm port for the winch motor
+    public static final int kPortPwm_SwingMotor = 2; // pwm port for the swing motor
 
     public static final double kWinchSpeed = 0.5;
+    public static final double kSwingArmSpeed = 0.4;
   }
 }

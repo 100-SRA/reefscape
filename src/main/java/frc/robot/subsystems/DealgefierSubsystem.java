@@ -10,13 +10,15 @@ public class DealgefierSubsystem extends SubsystemBase {
     private final Spark m_winchMotor = new Spark(DealgefierConstants.kPortPwm_WinchMotor);
     private final Spark m_spinArmMotor = new Spark(DealgefierConstants.kPortPwm_SwingMotor);
     
-
-    
     public DealgefierSubsystem () {
-
         setDefaultCommand(
             // automatically disables the motor
-            runOnce(() -> m_winchMotor.disable()).andThen(run(() -> {})));
+        runOnce(() -> {
+            m_spinArmMotor.disable();
+            m_winchMotor.disable();
+        })
+            .andThen(run(() -> {
+            })));
     }
     public Command moveWinchCommand(boolean forwardDirection){
         //main command for moving the winch motor
@@ -29,9 +31,9 @@ public class DealgefierSubsystem extends SubsystemBase {
     public Command SpinArmCommand(boolean forwardDirection){
         //main command for moving the winch motor
         if (forwardDirection){
-            return run(() -> m_winchMotor.set(DealgefierConstants.kWinchSpeed));
+            return run(() -> m_spinArmMotor.set(DealgefierConstants.kSwingArmSpeed));
         } else {
-            return run(() -> m_winchMotor.set(DealgefierConstants.kWinchSpeed * -1));
+            return run(() -> m_spinArmMotor.set(DealgefierConstants.kSwingArmSpeed * -1));
         }
     }
 }
